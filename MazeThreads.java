@@ -157,7 +157,7 @@ public class MazeThreads implements Runnable {
 		}
 		if(endw == ends==ende==endn){
 			t[NumofT].stop();
-			System.out.println("a thread stop");
+			System.out.println("thread #"+NumofT+" stop in pos"+move.x+","+move.y);
 		}
 		
 	}
