@@ -42,12 +42,10 @@ public class Maze {
 						break;
 					default:
 						for(int c2nt=0;cont<maze.length && c2nt<maze[cont].length;c2nt++){
-							//if((cont!=a-1&&c2nt!=b-1)||(cont!=c-1&&c2nt!=d-1)){
 								maze[cont][c2nt] = Character.getNumericValue(line.charAt(ch));
 								maze[e_corx-1][e_cory-1] = 0;
 								maze[en_corx-1][en_cory-1] = 0;
 								ch+=2;
-							//}
 							System.out.print(maze[cont][c2nt]+" ");
 						}
 						System.out.println();
@@ -57,6 +55,10 @@ public class Maze {
 					}
 				}
 				br.close();
+				/* esto es para configurar las cordenadas puestas en el 
+				 * el documento y transformalas en cordenadas de un
+				 * arreglo
+				 */
 				if(en_corx!=0){
 					en_corx--;
 				}
