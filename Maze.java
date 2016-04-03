@@ -17,7 +17,7 @@ import java.io.*;
 public class Maze {
 
 	static int[][] maze; // matriz donde se guarda el laberinto
-	static File Filemaze = new File("maze.txt"); // accseo al archivo
+	static File Filemaze = new File("src/maze.txt"); // accseo al archivo
 	public static int en_corx,en_cory,e_corx,e_cory; // corrdenadas de entrada y salida
 	
 	//metodo para crear el laberinto
@@ -29,15 +29,22 @@ public class Maze {
 				BufferedReader br = new BufferedReader(new FileReader(Filemaze));
 				String line= null; // guarda cada line del txt
 				int checkl =1,cont=0,ch=0; 
-				char n;
+				String nSize = "";
 				// este while se ejecuta por lineas y guarda la linea del documnto en line
 				while((line = br.readLine())!= null){
 					// check es un contador para verificar que linea esta leyendo
 					switch (checkl) {
 					// en el primer caso 1 le el size del arreglo
 					case 1:
-						n = line.charAt(5);
-						size = Character.getNumericValue(n);
+						nSize = line.substring(5);
+						try{
+							size = Integer.parseInt(nSize);
+						}catch(Exception e){
+							System.out.println("Error en formato de Tamano del laberinto");
+							System.exit(0);
+						}
+						
+						//size = Character.getNumericValue(n);
 						System.out.println("este es el size: "+size);
 						maze = new int[size][size];
 						checkl++;
